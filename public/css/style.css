@@ -20,3 +20,8 @@ p {
 .img-small {
     width: 180px;
 }
+
+.card {
+    max-width: 600px;
+    margin: 50px auto;
+}

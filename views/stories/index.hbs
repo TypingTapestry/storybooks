@@ -6,14 +6,15 @@
                 <div class="card-image">
                     {{{editIcon user ../user _id}}}
                 </div>
-                <div class="card-content center-align">
-                    <h5>{{title}}</h5>
-                    <p>{{stripTags (truncate body 150)}}</p>
-                    <br>
+                <div class="card-content">
+                    {{!-- spider lady: put image here, I think? full width of the card (I used CSS, not materialize) --}}
                     <div class="chip">
                         <img src="{{user.image}}">
                         <a href="/stories/user/{{user._id}}">{{user.displayName}}</a>
                     </div>
+                    <h5>{{title}}</h5>
+                    <p>{{stripTags (truncate body 150)}}</p>
+                    <br>
                 </div>
                 <div class="card-action center-align">
                     <a href="/stories/{{_id}}" class="btn grey">Read More</a>
