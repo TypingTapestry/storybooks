@@ -7,10 +7,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
     />
+    <script src="https://kit.fontawesome.com/6b91c031fc.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h3>Add Story</h3>
     <div class="row">
+      <h3 class="default-title">Add Recipe:</h3>
       <form action="/stories" method="POST" class="col s12">
         <div class="row">
           <div class="input-field">
@@ -31,7 +32,7 @@
 
         <div class="row">
           <div class="input-field">
-            <h5>Tell Your Story:</h5>
+            <h5 class="instructions">Instructions:</h5>
             <textarea name="body" id="body"></textarea>
           </div>
         </div>
@@ -42,33 +43,28 @@
         </div>
       </form>
     </div>
-
-    <div class="container">
-      <h3>Image Upload</h3>
+    <br>
+    <div class="row container">
+      <h5 class="instructions">Upload Image:</h5>
       {{!<%= typeof msg !== "undefined" ? msg : "" %>}}
       <form action="/upload" method="POST" enctype="multipart/form-data">
         <div class="file-field input-field">
           <div class="btn grey">
-            <span>File</span>
-            <input name="myImage" type="file" />
+            <span>Browse</span>
+            <input type="file" name="myImage">
           </div>
           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" />
+            <input type="text" class="file-path validate">
           </div>
         </div>
-        <button type="submit" class="btn">Upload Image</button>
+        {{!-- <input type="file" name="myImage" class="btn grey"> --}}
+        <button type="submit" class="btn">Upload</button>
       </form>
-      <br />
+      <br>
       {{!<img src="<%= typeof file !== 'undefined' ? file : '' %>" class="responsive-img"/>}}
     </div>
-
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.css"
-    ></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.css"></script>
   </body>
 </html>

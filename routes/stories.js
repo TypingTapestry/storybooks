@@ -141,4 +141,31 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
     };
 });
 
+// @desc    Search Stories by Title or Keyword
+// @route   GET /stories/search/:query
+router.get('/search/:query', ensureAuth, async (req, res) => {
+    try {
+        const regex = new RegExp(escapeRegex(req.query.query), 'gi');
+
+        const stories = await Story.find({
+            $or: [{ title: regex }, { body: regex }],
+            status: 'public'
+        })
+        .populate('user')
+        .sort({ createdAt: 'desc' })
+        .lean();
+
+        res.render('stories/index', {
+            stories
+        });
+    } catch (err) {
+        console.error(err);
+        res.render('error/500');
+    };
+});
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
+
 module.exports = router;

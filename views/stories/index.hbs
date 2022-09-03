@@ -1,4 +1,16 @@
-<h1>Stories</h1>
+<h2 class="public-title">Recipes</h2>
+<ul class="center">
+    <li>
+        <form action="/stories/search/:query" method="GET">
+            <div class="input-search">
+                <div>
+                    <input type="search" name="query" placeholder="Search by Title or Keyword" minlength="3" size="70">
+                </div>
+                <button class="btn search-btn" type="submit">&nbsp;Search&nbsp;</button>
+            </div>
+        </form>
+    </li>
+</ul>
 <div class="row">
     {{#each stories}}
         <div class="s12 m4">
@@ -7,17 +19,17 @@
                     {{{editIcon user ../user _id}}}
                 </div>
                 <div class="card-content">
-                    {{!-- spider lady: put image here, I think? full width of the card (I used CSS, not materialize) --}}
                     <div class="chip">
                         <img src="{{user.image}}">
                         <a href="/stories/user/{{user._id}}">{{user.displayName}}</a>
                     </div>
-                    <h5>{{title}}</h5>
-                    <p>{{stripTags (truncate body 150)}}</p>
-                    <br>
+                    {{!-- QT: Insert right-aligned 'Country of Origin' or Image/Icon of Country's Flag here. --}}
+                    <h5 class="recipe-title">{{title}}</h5>
+                    {{!-- QT: TheSpiderLady: Insert image here, using <= max-width of the card? (used CSS, not Materialize) --}}
+                    <p>{{stripTags (truncate body 400)}}</p>
                 </div>
                 <div class="card-action center-align">
-                    <a href="/stories/{{_id}}" class="btn grey">Full recipe</a>
+                    <a href="/stories/{{_id}}" class="btn grey">View Full Recipe</a>
                 </div>
             </div>
         </div>

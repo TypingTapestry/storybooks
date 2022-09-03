@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Roboto&family=Rubik&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 p {
     margin: 10px 0 !important;
 }
@@ -12,6 +18,15 @@ p {
     font-size: 16px !important;
 }
 
+.fa-large {
+    font-size: 25px !important;
+    vertical-align: bottom;
+}
+
+.fa-solid {
+    font-size: inherit;
+}
+
 .btn-float {
     float: left;
     margin-right: 10px;
@@ -24,4 +39,45 @@ p {
 .card {
     max-width: 600px;
     margin: 50px auto;
+}
+
+.brand-logo {
+    font-family: 'Concert One', cursive;
+    letter-spacing: .03em;
+}
+
+.default-title {
+    margin: 2.8rem auto 2.5rem auto;
+}
+
+.public-title {
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.recipe-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.story-title {
+    margin-bottom: 1.5rem !important;
+}
+
+.input-search {
+    display: inline-block;
+    width: 600px;
+}
+
+.instructions {
+    margin-bottom: 1rem;
+}
+
+.more-from {
+    margin-right: 0px !important;
+}
+
+.search-btn {
+    margin: 10px auto 20px auto;
 }
