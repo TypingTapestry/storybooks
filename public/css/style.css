@@ -81,3 +81,12 @@ p {
 .search-btn {
     margin: 10px auto 20px auto;
 }
+
+.sort {
+    display: flex; 
+    justify-content: center;
+}
+
+.sort button {
+    margin: 2.5px;
+}
