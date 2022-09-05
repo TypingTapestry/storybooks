@@ -25,7 +25,11 @@
         M.FormSelect.init(document.querySelector('#status'));
 
         CKEDITOR.replace('body', {
-            plugins: 'wysiwygarea, toolbar, basicstyles, link'
+            plugins: 'wysiwygarea, toolbar, basicstyles, link',
+            extraPlugins: "easyimage",
+            removePlugins: "image",
+            cloudServices_tokenUrl: "https://92050.cke-cs.com/token/dev/bd642ed1f723dbe8673efc85cab48523a94a7d7235215bc82134098f34c7?limit=10",
+            cloudServices_uploadUrl: "https://92050.cke-cs.com/easyimage/upload/"
         });
     </script>
 </body>
