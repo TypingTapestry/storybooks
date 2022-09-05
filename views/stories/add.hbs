@@ -7,7 +7,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
     />
-    <script src="https://kit.fontawesome.com/6b91c031fc.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/6b91c031fc.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="row">
@@ -43,28 +46,5 @@
         </div>
       </form>
     </div>
-    <br>
-    <div class="row container">
-      <h5 class="instructions">Upload Image:</h5>
-      {{!<%= typeof msg !== "undefined" ? msg : "" %>}}
-      <form action="/upload" method="POST" enctype="multipart/form-data">
-        <div class="file-field input-field">
-          <div class="btn grey">
-            <span>Browse</span>
-            <input type="file" name="myImage">
-          </div>
-          <div class="file-path-wrapper">
-            <input type="text" class="file-path validate">
-          </div>
-        </div>
-        {{!-- <input type="file" name="myImage" class="btn grey"> --}}
-        <button type="submit" class="btn">Upload</button>
-      </form>
-      <br>
-      {{!<img src="<%= typeof file !== 'undefined' ? file : '' %>" class="responsive-img"/>}}
-    </div>
-    
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.css"></script>
   </body>
 </html>
