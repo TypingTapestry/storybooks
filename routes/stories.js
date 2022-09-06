@@ -27,18 +27,16 @@ router.post('/', ensureAuth, async (req, res) => {
 // @route   GET /stories
 router.get('/', ensureAuth, async (req, res) => {
     try {
-        const sortQuery = req.query
-        console.log(sortQuery)
+        const sortQuery = req.query;
 
-        
-        if (sortQuery.query == 'newest' ) {
-            sortObjects = { createdAt: 'desc' }
-        } else if (sortQuery.query == 'oldest') {
-            sortObjects = { createdAt: 'asc' }
+        if (sortQuery.query === 'newest') {
+            sortObjects = { createdAt: 'desc' };
+        } else if (sortQuery.query === 'oldest') {
+            sortObjects = { createdAt: 'asc' };
         } else {
-            sortObjects = { createdAt: 'desc' }
-        }
-    console.log(sortObjects)
+            sortObjects = { createdAt: 'desc' };
+        };
+
         const stories = await Story.find({ status: 'public' })
             .populate('user')
             .sort(sortObjects)
@@ -47,7 +45,7 @@ router.get('/', ensureAuth, async (req, res) => {
         res.render('stories/index', { stories });
     } catch (err) {
         console.error(err);
-        res.render('error/500');
+        res.render('error/500');        
     };
 });
 
@@ -179,23 +177,5 @@ router.get('/search/:query', ensureAuth, async (req, res) => {
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
-
-
-// @desc    Show All Stories Oldest to Newsest
-// @route   GET /stories/oldest
-// router.get('/', ensureAuth, async (req, res) => {
-//     try {
-//         const stories = await Story.find({ status: 'public' })
-//             .populate('user')
-//             .sort({ createdAt: -1 })
-//             .lean();
-
-//         res.render('stories/index', { stories });
-//     } catch (err) {
-//         console.error(err);
-//         res.render('error/500');
-//     };
-// });
-
 
 module.exports = router;
