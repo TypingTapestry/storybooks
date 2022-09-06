@@ -4,12 +4,23 @@
         <form action="/stories/search/:query" method="GET">
             <div class="input-search">
                 <div>
-                    <input type="search" name="query" placeholder="Search by Title or Keyword" minlength="3" size="70">
+                    <input type="search" name="query" placeholder="Search by Title or Keyword" style="text-align: center" minlength="3" size="70">
                 </div>
-                <button class="btn search-btn" type="submit">&nbsp;Search&nbsp;</button>
+                <button class="btn search-btn blue" type="submit">&nbsp;Search&nbsp;</button>
             </div>
         </form>
     </li>
+</ul>
+<ul class="center">
+    <div class="sort">
+        <form action="/stories/" method="GET">
+            <a class="btn-flat disabled">&nbsp;Sort By&nbsp;</a>
+            <button class="btn" type="submit" name="query" value="newest">&nbsp;Newest&nbsp;</button>
+        </form>
+        <form action="/stories/" method="GET">
+            <button class="btn" type="submit" name="query" value="oldest">&nbsp;Oldest&nbsp;</button>
+        </form>
+    </div>
 </ul>
 <div class="row">
     {{#each stories}}
@@ -23,10 +34,8 @@
                         <img src="{{user.image}}">
                         <a href="/stories/user/{{user._id}}">{{user.displayName}}</a>
                     </div>
-                    {{!-- QT: Insert right-aligned 'Country of Origin' or Image/Icon of Country's Flag here. --}}
                     <h5 class="recipe-title">{{title}}</h5>
-                    {{!-- QT: TheSpiderLady: Insert image here, using <= max-width of the card? (used CSS, not Materialize) --}}
-                    <p>{{stripTags (truncate body 1500)}}</p>
+                    <p>{{stripTags (truncate body 2000)}}</p>
                 </div>
                 <div class="card-action center-align">
                     <a href="/stories/{{_id}}" class="btn grey">View Full Recipe</a>
@@ -34,6 +43,6 @@
             </div>
         </div>
     {{else}}
-        <p>No stories to display.</p>
+        <p>No recipes to display.</p>
     {{/each}}
 </div>
