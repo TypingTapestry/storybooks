@@ -81,3 +81,11 @@ p {
 .search-btn {
     margin: 10px auto 20px auto;
 }
+
+.easyimage, .easyimage-full {
+    display: flex;
+    object-fit: inherit;
+    max-width: 600px;
+    height: 300px;
+    justify-content: center;
+}
