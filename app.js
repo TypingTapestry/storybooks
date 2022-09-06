@@ -8,8 +8,6 @@ const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const connectDB = require('./config/db');
-const fs = require('fs');
-const multer = require('multer');
 
 // Load Config
 dotenv.config({ path: './config/config.env' });
@@ -24,50 +22,6 @@ const app = express();
 // Body Parser
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-// Multer
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads');
-    },
-    filename: (req, file, cb) => {
-        cb(null, file-fieldname + '-' + Date.now());
-    }
-});
-
-const upload = multer({ storage: storage });
-
-const imgModel = require('./models/Image');
-
-// app.get('/', (req, res) => {
-//     imgModel.find({}, (err, items) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('An error occurred.', err);
-//         } else {
-//             res.render('imagesPage', { items: items });
-//         };
-//     });
-// });
-
-app.post('/', upload.single('image'), (req, res, next) => {
-    let obj = {
-        name: req.body.name,
-        desc: req.body.desc,
-        img: {
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-            contentType: 'image/png'
-        }
-    };
-    imgModel.create(obj, (err, item) => {
-        if (err) {
-            console.log(err);
-        } else {
-            item.save();
-            res.redirect('/');
-        };
-    });
-});
 
 // Method Override
 app.use(methodOverride(function (req, res) {
