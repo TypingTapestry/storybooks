@@ -13,18 +13,16 @@
 </ul>
 <ul class="center">
         <div class="sort">
-                <form action="/stories/newest/" method="GET">
-                    <button class="btn">Newest</button>
+                <form action="/stories/" method="GET">
+                    <button class="btn" type="submit" name="query" value="newest">Newest</button>
                 </form>
-                <form action="/stories/oldest/" method="GET">
-                    <button class="btn" value="-1">Oldest</button>
-                </form>
-                <form action="/stories/likes/" method="GET">
-                    <button input type="likes" value="likes" class="btn">Most Likes</button>
+                <form action="/stories/" method="GET">
+                    <button class="btn" type="submit" name="query" value="oldest">Oldest</button>
                 </form>
         </div>
 </ul>
 <div class="row">
+
     {{#each stories}}
         <div class="s12 m4">
             <div class="card">

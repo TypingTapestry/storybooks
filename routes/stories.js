@@ -27,9 +27,21 @@ router.post('/', ensureAuth, async (req, res) => {
 // @route   GET /stories
 router.get('/', ensureAuth, async (req, res) => {
     try {
+        const sortQuery = req.query
+        console.log(sortQuery)
+
+        
+        if (sortQuery.query == 'newest' ) {
+            sortObjects = { createdAt: 'desc' }
+        } else if (sortQuery.query == 'oldest') {
+            sortObjects = { createdAt: 'asc' }
+        } else {
+            sortObjects = { createdAt: 'desc' }
+        }
+    console.log(sortObjects)
         const stories = await Story.find({ status: 'public' })
             .populate('user')
-            .sort({ createdAt: 'desc' })
+            .sort(sortObjects)
             .lean();
 
         res.render('stories/index', { stories });
