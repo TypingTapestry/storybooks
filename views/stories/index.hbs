@@ -11,7 +11,18 @@
         </form>
     </li>
 </ul>
+<ul class="center">
+        <div class="sort">
+                <form action="/stories/" method="GET">
+                    <button class="btn" type="submit" name="query" value="newest">Newest</button>
+                </form>
+                <form action="/stories/" method="GET">
+                    <button class="btn" type="submit" name="query" value="oldest">Oldest</button>
+                </form>
+        </div>
+</ul>
 <div class="row">
+
     {{#each stories}}
         <div class="s12 m4">
             <div class="card">
