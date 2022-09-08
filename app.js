@@ -63,7 +63,7 @@ app.use(function (req, res, next) {
 });
 
 // Static Folder
-app.use(express.static('./public'));
+app.use(express.static('./public/'));
 
 // Routes
 app.use('/', require('./routes/index'));

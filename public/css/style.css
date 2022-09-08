@@ -46,6 +46,14 @@ p {
     letter-spacing: .03em;
 }
 
+.easyimage, .easyimage-full {
+    display: flex;
+    object-fit: inherit;
+    max-width: 600px;
+    height: 300px;
+    justify-content: center;
+}
+
 .default-title {
     margin: 2.8rem auto 2.5rem auto;
 }
@@ -87,7 +95,7 @@ p {
     font-family: 'Rubik', sans-serif;
     font-size: 1.1rem;
     text-align: center;
-    padding-bottom: 0.5rem;    
+    padding-bottom: 0.5rem;
 }
 
 .social-group {
@@ -121,12 +129,4 @@ p {
 
 .sort button {
     margin: 2.5px;
-}
-
-.easyimage, .easyimage-full {
-    display: flex;
-    object-fit: inherit;
-    max-width: 600px;
-    height: 300px;
-    justify-content: center;
 }
